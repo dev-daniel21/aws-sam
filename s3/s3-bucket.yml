@@ -1,0 +1,5 @@
+Resources:
+  MyWebsite:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: cloud-resume-website
