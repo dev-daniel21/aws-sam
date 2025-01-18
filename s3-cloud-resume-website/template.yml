@@ -2,4 +2,7 @@ Resources:
   MyWebsite:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: cloud-resume-website
+      BucketName:
+        !Sub
+          - 'cloud-resume-website-${RandomUUID}'
+          - { RandomUUID: !Select [0, !Split ["-", !Select [2, !Split ["/", !Ref AWS::StackId ]]]] }
