@@ -2,7 +2,9 @@ Resources:
   MyWebsite:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName:
-        !Sub
-          - 'cloud-resume-website-${RandomUUID}'
-          - { RandomUUID: !Select [0, !Split ["-", !Select [2, !Split ["/", !Ref AWS::StackId ]]]] }
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: FALSE
+        BlockPublicPolicy: FALSE
+        IgnorePublicAcls: FALSE
+        RestrictPublicBuckets: FALSE
+      BucketName: cloud-resume-website-16ed7180
