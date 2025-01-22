@@ -7,4 +7,6 @@ Resources:
         BlockPublicPolicy: FALSE
         IgnorePublicAcls: FALSE
         RestrictPublicBuckets: FALSE
+      WebsiteConfiguration:
+        IndexDocument: index.html
       BucketName: cloud-resume-website-16ed7180
