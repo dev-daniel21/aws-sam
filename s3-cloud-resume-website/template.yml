@@ -10,6 +10,18 @@ Resources:
       WebsiteConfiguration:
         IndexDocument: index.html
       BucketName: cloud-resume-website-16ed7180
+  
+  MyRoute53Record:
+    Type: "AWS::Route53::RecordSetGroup"
+    Properties:
+      HostedZoneId: Z00162993DNXR218MVQ3Q
+      RecordSets:
+        - Name: dev-dan-resume.com
+          Type: A
+          AliasTarget:
+            HostedZoneId: Z2FDTNDATAQYW2
+            DNSName: !GetAtt ResumeDistribution.DomainName
+  
   ResumeDistribution:
     Type: "AWS::CloudFront::Distribution"
     Properties:
