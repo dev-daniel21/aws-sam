@@ -22,10 +22,19 @@ Resources:
             HostedZoneId: Z2FDTNDATAQYW2
             DNSName: !GetAtt ResumeDistribution.DomainName
   
+  ResumeCertificate:
+    Type: AWS::CertificateManager::Certificate
+    Properties:
+      DomainName: dev-dan-resume.com
+      ValidationMethod: DNS
+
   ResumeDistribution:
     Type: "AWS::CloudFront::Distribution"
     Properties:
       DistributionConfig:
+        ViewerCertificate:
+          AcmCertificateArn: !Ref ResumeCertificate
+          SslSupportMethod: sni-only
         DefaultCacheBehavior:
           ViewerProtocolPolicy: allow-all
           TargetOriginId: cloud-resume-website-16ed7180.s3-website-us-east-1.amazonaws.com
