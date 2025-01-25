@@ -35,6 +35,8 @@ Resources:
         ViewerCertificate:
           AcmCertificateArn: !Ref ResumeCertificate
           SslSupportMethod: sni-only
+        Aliases:
+          - dev-dan-resume.com
         DefaultCacheBehavior:
           ViewerProtocolPolicy: allow-all
           TargetOriginId: cloud-resume-website-16ed7180.s3-website-us-east-1.amazonaws.com
