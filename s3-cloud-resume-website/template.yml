@@ -52,3 +52,15 @@ Resources:
               OriginProtocolPolicy: match-viewer
         Enabled: "true"
         DefaultRootObject: index.html
+    
+  ResumeDBTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: resume-visits-counter
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: "ID"
+          AttributeType: "S"
+      KeySchema:
+        - AttributeName: "ID"
+          KeyType: "HASH"
